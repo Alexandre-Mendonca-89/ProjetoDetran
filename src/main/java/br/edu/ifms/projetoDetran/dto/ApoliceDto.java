@@ -9,7 +9,7 @@ public class ApoliceDto {
 	private String vigencia;
 	
 	public ApoliceDto() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public ApoliceDto(Apolice apolice) {
