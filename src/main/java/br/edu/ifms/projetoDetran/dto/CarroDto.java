@@ -11,9 +11,10 @@ public class CarroDto {
 	private String cor;
 	
 	public CarroDto() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
+	
+	//Instanciando um objeto da classe Carro dentro do atributo carro
 	public CarroDto(Carro carro) {
 		super();
 		this.id = carro.getId();

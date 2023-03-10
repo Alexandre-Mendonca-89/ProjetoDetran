@@ -11,6 +11,7 @@ public class MultaDto {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Instanciando um objeto da classe Multa dentro do atributo multa
 	public MultaDto(Multa multa) {
 		super();
 		this.id = multa.getId();

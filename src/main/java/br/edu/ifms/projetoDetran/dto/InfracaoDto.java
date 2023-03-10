@@ -12,6 +12,7 @@ public class InfracaoDto {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Instanciando um objeto da classe Infracao dentro do atributo infracao
 	public InfracaoDto(Infracao infracao) {
 		super();
 		this.id = infracao.getId();
