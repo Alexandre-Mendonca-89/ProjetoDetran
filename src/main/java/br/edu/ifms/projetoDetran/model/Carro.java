@@ -31,28 +31,22 @@ public class Carro implements Serializable{
 	
 	@OneToMany(mappedBy="carro")
 	private List<Multa> multas = new ArrayList<Multa>();
-	
-	public String getCor() {
-		return cor;
-	}
-
-	public void setCor(String cor) {
-		this.cor = cor;
-	}
 
 	public Carro() {
 		
 	}
 
-	public Carro(Long id, String nome, String marca, int modelo, String placa, Apolice apolice) {
+	
+
+	public Carro(Long id, String nome, String marca, int modelo, String placa, String cor, Apolice apolice) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.marca = marca;
 		this.modelo = modelo;
 		this.placa = placa;
+		this.cor = cor;
 		this.apolice = apolice;
-		
 	}
 
 	public Long getId() {
@@ -93,6 +87,14 @@ public class Carro implements Serializable{
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
+	}
+	
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
 	}
 	
 	public String getApolice() {
