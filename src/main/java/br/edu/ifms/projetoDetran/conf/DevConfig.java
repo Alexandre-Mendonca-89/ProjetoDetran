@@ -1,4 +1,4 @@
-package br.edu.ifms.projetoDetran.conf;
+package br.edu.ifms.projetodetran.conf;
 
 import java.text.ParseException;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import br.edu.ifms.projetoDetran.service.DBService;
+import br.edu.ifms.projetodetran.service.DBService;
 
 @Configuration
 @Profile("dev")

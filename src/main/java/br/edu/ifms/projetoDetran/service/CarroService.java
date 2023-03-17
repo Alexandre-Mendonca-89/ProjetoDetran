@@ -1,4 +1,4 @@
-package br.edu.ifms.projetoDetran.service;
+package br.edu.ifms.projetodetran.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,37 +6,36 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifms.projetoDetran.dto.CarroDto;
-import br.edu.ifms.projetoDetran.model.Carro;
-import br.edu.ifms.projetoDetran.repository.RepositoryCarro;
+import br.edu.ifms.projetodetran.dto.CarroDto;
+import br.edu.ifms.projetodetran.model.Carro;
+import br.edu.ifms.projetodetran.repository.RepositoryCarro;
 
 @Service
 public class CarroService {
-	
 	@Autowired
 	private RepositoryCarro repositoryCarro;
 	
+		
 	public List<Carro> buscarTodos(){
-		return repositoryCarro.findAll()
-;	}
+		return repositoryCarro.findAll();
+	}	
 	
-	public Carro buscaPorId(Long id) {
+	public Carro buscarPorId(Long id) {
 		Optional<Carro> carro = repositoryCarro.findById(id);
-		return carro.orElseThrow();
+		return carro.orElseThrow();		
 	}
-	
 	public Carro inserir(Carro carro) {
 		carro.setId(null);
 		return repositoryCarro.save(carro);
 	}
 	
 	public void remover(Long id) {
-		buscaPorId(id);
-		repositoryCarro.deleteById(id);
+		buscarPorId(id);
+		repositoryCarro.deleteById(id);		
 	}
 	
 	public Carro atualizar(Carro carro) {
-		Carro carroNovo = buscaPorId(carro.getId());
+		Carro carroNovo = buscarPorId(carro.getId());		
 		carroNovo.setNome(carro.getNome());
 		carroNovo.setPlaca(carro.getPlaca());
 		carroNovo.setMarca(carro.getMarca());
@@ -46,10 +45,8 @@ public class CarroService {
 	}
 	
 	public Carro fromDto(CarroDto carroDto) {
-		return new Carro(carroDto.getId(), carroDto.getNome(), carroDto.getMarca(), carroDto.getModelo(), carroDto.getPlaca(), carroDto.getCor(), null);
+		return new Carro(carroDto.getId(),carroDto.getNome(),carroDto.getPlaca(),carroDto.getMarca(),carroDto.getModelo(),carroDto.getCor(),null);
 	}
 	
-	/*public List<Carro> buscaPorPlaca(String str) {
-		return repositoryCarro.findByPlacaContaing(str);
-	}*/
+	
 }

@@ -1,29 +1,25 @@
-package br.edu.ifms.projetoDetran.model;
+package br.edu.ifms.projetodetran.model;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
-
 @Entity
 public class Apolice implements Serializable{
+	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id	
 	private Long id;
 	private float valor;
 	private String cobertura;
 	private String vigencia;
-	
 	@OneToOne
 	@JoinColumn(name="carro_id")
 	@MapsId
@@ -98,6 +94,7 @@ public class Apolice implements Serializable{
 		Apolice other = (Apolice) obj;
 		return Objects.equals(id, other.id);
 	}
+	
 	
 	
 }

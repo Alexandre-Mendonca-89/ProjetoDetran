@@ -1,4 +1,4 @@
-package br.edu.ifms.projetoDetran.model;
+package br.edu.ifms.projetodetran.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,22 +10,26 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
 @Entity
 public class Infracao implements Serializable{
-	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String descricao;
 	private int pontos;
-	private double valor;
-	
-	@OneToMany(mappedBy="infracao")
+	private float valor;
+	@OneToMany(mappedBy = "infracao")	
 	private List<Multa> multas = new ArrayList<Multa>();
 	
-	public Infracao(Long id, String descricao, int pontos, double valor) {
+	public Infracao() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Infracao(Long id, String descricao, int pontos, float valor) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -57,21 +61,26 @@ public class Infracao implements Serializable{
 		this.pontos = pontos;
 	}
 
-	public double getValor() {
+	public float getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 	
+	
+	public List<Multa> getMultas() {
+		return multas;
+	}
+
+	public void setMultas(List<Multa> multas) {
+		this.multas = multas;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(descricao, id, multas, pontos, valor);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -83,16 +92,10 @@ public class Infracao implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Infracao other = (Infracao) obj;
-		return Objects.equals(descricao, other.descricao) && Objects.equals(id, other.id)
-				&& Objects.equals(multas, other.multas) && pontos == other.pontos
-				&& Double.doubleToLongBits(valor) == Double.doubleToLongBits(other.valor);
+		return Objects.equals(id, other.id);
 	}
+	
+	
+	
 
-	public List<Multa> getMultas() {
-		return multas;
-	}
-
-	public void setMultas(List<Multa> multas) {
-		this.multas = multas;
-	}	
 }

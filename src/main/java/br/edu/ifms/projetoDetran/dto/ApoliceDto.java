@@ -1,15 +1,21 @@
-package br.edu.ifms.projetoDetran.dto;
+package br.edu.ifms.projetodetran.dto;
 
-import br.edu.ifms.projetoDetran.model.Apolice;
+import java.io.Serializable;
 
-public class ApoliceDto {
+import br.edu.ifms.projetodetran.model.Apolice;
+
+public class ApoliceDto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private float valor;
 	private String cobertura;
 	private String vigencia;
 	
 	public ApoliceDto() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
 	public ApoliceDto(Apolice apolice) {
@@ -50,8 +56,6 @@ public class ApoliceDto {
 
 	public void setVigencia(String vigencia) {
 		this.vigencia = vigencia;
-	}
-	
-		
+	}	
 	
 }

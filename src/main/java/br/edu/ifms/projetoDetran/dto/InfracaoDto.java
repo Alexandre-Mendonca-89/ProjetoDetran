@@ -1,18 +1,23 @@
-package br.edu.ifms.projetoDetran.dto;
+package br.edu.ifms.projetodetran.dto;
 
-import br.edu.ifms.projetoDetran.model.Infracao;
+import java.io.Serializable;
 
-public class InfracaoDto {
+import br.edu.ifms.projetodetran.model.Infracao;
+
+public class InfracaoDto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String descricao;
 	private int pontos;
-	private double valor;
+	private float valor;
 	
 	public InfracaoDto() {
 		// TODO Auto-generated constructor stub
 	}
 
-	//Instanciando um objeto da classe Infracao dentro do atributo infracao
 	public InfracaoDto(Infracao infracao) {
 		super();
 		this.id = infracao.getId();
@@ -45,11 +50,11 @@ public class InfracaoDto {
 		this.pontos = pontos;
 	}
 
-	public double getValor() {
+	public float getValor() {
 		return valor;
 	}
 
-	public void setValor(double valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
 	

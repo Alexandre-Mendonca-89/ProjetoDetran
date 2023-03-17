@@ -1,4 +1,4 @@
-package br.edu.ifms.projetoDetran.model;
+package br.edu.ifms.projetodetran.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -14,22 +14,20 @@ import jakarta.persistence.ManyToOne;
 public class Multa implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String cidade;
 	private int ano;
-	
 	@ManyToOne
 	@JoinColumn(name="id_carro")
-	private Carro carro;
+	private Carro carro;	
 	
 	@ManyToOne
-	@JoinColumn(name="id-infracao")
+	@JoinColumn(name="id_infracao")
 	private Infracao infracao;
 	
-	public Multa() {
+    public Multa() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -81,10 +79,10 @@ public class Multa implements Serializable{
 	public void setInfracao(Infracao infracao) {
 		this.infracao = infracao;
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(ano, carro, cidade, id, infracao);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -96,8 +94,9 @@ public class Multa implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Multa other = (Multa) obj;
-		return ano == other.ano && Objects.equals(carro, other.carro) && Objects.equals(cidade, other.cidade)
-				&& Objects.equals(id, other.id) && Objects.equals(infracao, other.infracao);
+		return Objects.equals(id, other.id);
 	}
-	
+    
+    
+
 }

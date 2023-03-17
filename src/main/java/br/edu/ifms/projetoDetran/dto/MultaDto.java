@@ -1,8 +1,14 @@
-package br.edu.ifms.projetoDetran.dto;
+package br.edu.ifms.projetodetran.dto;
 
-import br.edu.ifms.projetoDetran.model.Multa;
+import java.io.Serializable;
 
-public class MultaDto {
+import br.edu.ifms.projetodetran.model.Multa;
+
+public class MultaDto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String cidade;
 	private int ano;
@@ -11,7 +17,6 @@ public class MultaDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	//Instanciando um objeto da classe Multa dentro do atributo multa
 	public MultaDto(Multa multa) {
 		super();
 		this.id = multa.getId();
@@ -42,6 +47,7 @@ public class MultaDto {
 	public void setAno(int ano) {
 		this.ano = ano;
 	}
+	
 	
 	
 	

@@ -1,10 +1,10 @@
-package br.edu.ifms.projetoDetran;
+package br.edu.ifms.projetodetran;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjetoDetranApplicationTests {
+class ProjetodetranApplicationTests {
 
 	@Test
 	void contextLoads() {

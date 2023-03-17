@@ -1,27 +1,32 @@
-package br.edu.ifms.projetoDetran.dto;
+package br.edu.ifms.projetodetran.dto;
 
-import br.edu.ifms.projetoDetran.model.Carro;
+import java.io.Serializable;
 
-public class CarroDto {
+import br.edu.ifms.projetodetran.model.Carro;
+
+public class CarroDto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long id;
 	private String nome;
+	private String placa;
 	private String marca;
 	private int modelo;
-	private String placa;
 	private String cor;
 	
 	public CarroDto() {
-		
+		// TODO Auto-generated constructor stub
 	}
-	
-	//Instanciando um objeto da classe Carro dentro do atributo carro
+
 	public CarroDto(Carro carro) {
 		super();
 		this.id = carro.getId();
 		this.nome = carro.getNome();
+		this.placa = carro.getPlaca();
 		this.marca = carro.getMarca();
 		this.modelo = carro.getModelo();
-		this.placa = carro.getPlaca();
 		this.cor = carro.getCor();
 	}
 
@@ -41,6 +46,14 @@ public class CarroDto {
 		this.nome = nome;
 	}
 
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
 	public String getMarca() {
 		return marca;
 	}
@@ -57,21 +70,12 @@ public class CarroDto {
 		this.modelo = modelo;
 	}
 
-	public String getPlaca() {
-		return placa;
-	}
-
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
-
 	public String getCor() {
 		return cor;
 	}
 
 	public void setCor(String cor) {
 		this.cor = cor;
-	}
-	
+	}	
 	
 }

@@ -1,4 +1,4 @@
-package br.edu.ifms.projetoDetran.model;
+package br.edu.ifms.projetodetran.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,33 +21,32 @@ public class Carro implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	private String placa;
 	private String marca;
 	private int modelo;
-	private String placa;
 	private String cor;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "carro")
+	@OneToOne(cascade= CascadeType.ALL, mappedBy = "carro")
 	private Apolice apolice;
 	
-	@OneToMany(mappedBy="carro")
+	@OneToMany(mappedBy = "carro")
 	private List<Multa> multas = new ArrayList<Multa>();
-
+	
 	public Carro() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	public Carro(Long id, String nome, String marca, int modelo, String placa, String cor, Apolice apolice) {
+	public Carro(Long id, String nome, String placa, String marca, int modelo, String cor, Apolice apolice) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.placa = placa;
 		this.marca = marca;
 		this.modelo = modelo;
-		this.placa = placa;
 		this.cor = cor;
 		this.apolice = apolice;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -65,6 +64,14 @@ public class Carro implements Serializable{
 		this.nome = nome;
 	}
 
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
 	public String getMarca() {
 		return marca;
 	}
@@ -80,38 +87,17 @@ public class Carro implements Serializable{
 	public void setModelo(int modelo) {
 		this.modelo = modelo;
 	}
-
-	public String getPlaca() {
-		return placa;
-	}
-
-	public void setPlaca(String placa) {
-		this.placa = placa;
-	}
 	
+	
+
 	public String getCor() {
 		return cor;
 	}
 
+
+
 	public void setCor(String cor) {
 		this.cor = cor;
-	}
-	
-	public String getApolice() {
-		return placa;
-	}
-
-	public void setApolice(Apolice apolice) {
-		this.apolice = apolice;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(cor, id, marca, modelo, multas, nome, placa);
 	}
 
 	public List<Multa> getMultas() {
@@ -120,6 +106,21 @@ public class Carro implements Serializable{
 
 	public void setMultas(List<Multa> multas) {
 		this.multas = multas;
+	}
+	
+	
+
+	public Apolice getApolice() {
+		return apolice;
+	}
+
+	public void setApolice(Apolice apolice) {
+		this.apolice = apolice;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -131,8 +132,6 @@ public class Carro implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Carro other = (Carro) obj;
-		return Objects.equals(cor, other.cor) && Objects.equals(id, other.id) && Objects.equals(marca, other.marca)
-				&& modelo == other.modelo && Objects.equals(multas, other.multas) && Objects.equals(nome, other.nome)
-				&& Objects.equals(placa, other.placa);
+		return Objects.equals(id, other.id);
 	}
 }
