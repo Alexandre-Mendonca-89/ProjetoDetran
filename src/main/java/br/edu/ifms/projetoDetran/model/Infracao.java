@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,10 +20,11 @@ public class Infracao implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String descricao;
 	private int pontos;
 	private float valor;
+	@JsonIgnore
 	@OneToMany(mappedBy = "infracao")	
 	private List<Multa> multas = new ArrayList<Multa>();
 	
@@ -29,7 +32,7 @@ public class Infracao implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Infracao(Long id, String descricao, int pontos, float valor) {
+	public Infracao(Integer id, String descricao, int pontos, float valor) {
 		super();
 		this.id = id;
 		this.descricao = descricao;
@@ -37,11 +40,11 @@ public class Infracao implements Serializable{
 		this.valor = valor;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

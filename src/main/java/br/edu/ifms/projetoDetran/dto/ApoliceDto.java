@@ -9,7 +9,7 @@ public class ApoliceDto implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private Integer id;
 	private float valor;
 	private String cobertura;
 	private String vigencia;
@@ -26,11 +26,11 @@ public class ApoliceDto implements Serializable{
 		this.vigencia = apolice.getVigencia();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

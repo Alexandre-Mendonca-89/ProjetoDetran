@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import br.edu.ifms.projetodetran.model.Multa;
 @Repository
-public interface RepositoryMulta extends JpaRepository<Multa, Long>{
+public interface RepositoryMulta extends JpaRepository<Multa, Integer>{
 
 }

@@ -19,7 +19,7 @@ public class Carro implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nome;
 	private String placa;
 	private String marca;
@@ -36,7 +36,7 @@ public class Carro implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Carro(Long id, String nome, String placa, String marca, int modelo, String cor, Apolice apolice) {
+	public Carro(Integer id, String nome, String placa, String marca, int modelo, String cor, Apolice apolice) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -48,11 +48,11 @@ public class Carro implements Serializable{
 	}
 
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

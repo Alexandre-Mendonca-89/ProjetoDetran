@@ -9,7 +9,7 @@ public class MultaDto implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long id;
+	private Integer id;
 	private String cidade;
 	private int ano;
 	
@@ -24,11 +24,11 @@ public class MultaDto implements Serializable{
 		this.ano = multa.getAno();
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

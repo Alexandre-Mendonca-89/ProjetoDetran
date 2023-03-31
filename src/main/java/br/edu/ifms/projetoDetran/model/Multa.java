@@ -3,6 +3,8 @@ package br.edu.ifms.projetodetran.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,13 +18,14 @@ public class Multa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String cidade;
 	private int ano;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="id_carro")
 	private Carro carro;	
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="id_infracao")
 	private Infracao infracao;
@@ -31,7 +34,7 @@ public class Multa implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Multa(Long id, String cidade, int ano, Carro carro, Infracao infracao) {
+	public Multa(Integer id, String cidade, int ano, Carro carro, Infracao infracao) {
 		super();
 		this.id = id;
 		this.cidade = cidade;
@@ -40,11 +43,11 @@ public class Multa implements Serializable{
 		this.infracao = infracao;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

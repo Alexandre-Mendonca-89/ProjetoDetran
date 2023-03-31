@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import br.edu.ifms.projetodetran.model.Carro;
 @Repository
-public interface RepositoryCarro extends JpaRepository<Carro, Long>{
+public interface RepositoryCarro extends JpaRepository<Carro, Integer>{
 
 }
